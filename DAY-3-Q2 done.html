@@ -1,0 +1,30 @@
+<!-- DAY-4-Q2 - use the rest coutries API URL and display all the coutry flags in the console -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task-4-2</title>
+    </head>
+    <body>
+        <script>
+            // create new object
+let xhr = new XMLHttpRequest();
+
+// send the request header
+xhr.open("GET", "https://restcountries.com/v3.1/all", true);
+
+// when the responce received
+xhr.onload = function () {
+    let proc = JSON.parse(xhr.responseText);
+    for (let index=0; index<proc.length; index++) {
+        console.log(proc[index].flag);
+    }
+};
+
+// send the request
+xhr.send();
+        </script>
+    </body>
+
+</html>
+

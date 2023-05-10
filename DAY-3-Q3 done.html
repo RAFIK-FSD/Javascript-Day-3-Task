@@ -1,0 +1,31 @@
+<!-- Q3 - use the same rest countries and print all countries names, regions, sub region and populations -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>task</title>
+    </head>
+    <body>
+        <script>
+
+            const xhr = new XMLHttpRequest();
+const countryCode = "us"; // Replace with desired country code
+const url = `https://restcountries.com/v3.1/all`;
+
+xhr.onreadystatechange = function() {
+  if (xhr.readyState === 4 && xhr.status === 200) {
+    const response = JSON.parse(xhr.responseText);
+    // console.log(response); // Do something with the data
+    response.map((item)=>(
+       console.log(`name: ${item.name.common}, Region:${item.region}, Sub Region:${item.subregion}, Population: ${item.population}`)
+    
+    ))
+  }
+};
+
+xhr.open("GET", url);
+xhr.send();
+
+        </script>
+    </body>
+</html>
